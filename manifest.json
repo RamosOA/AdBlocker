@@ -1,0 +1,38 @@
+{
+    "manifest_version": 2,
+    "name": "Super Ad-Blocker",
+    "version": "1.0.0",
+    "description": "El bloqueador de anuncios más avanzado, indetectable y eficiente",
+    "permissions": [
+        "webRequest",
+        "webRequestBlocking",
+        "storage",
+        "tabs",
+        "<all_urls>"
+    ],
+    "background": {
+        "scripts": [
+            "src/background.js"
+        ],
+        "persistent": true
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "src/content.js"
+            ],
+            "run_at": "document_start"
+        }
+    ],
+    "icons": {
+        "48": "src/icons/icon48.png",
+        "128": "src/icons/icon128.png"
+    },
+    "browser_action": {
+        "default_popup": "src/popup.html",
+        "default_icon": "src/icons/icon48.png"
+    }
+}
